@@ -1,4 +1,9 @@
-import React from 'react'
+'use client'
+
+import Badge from "./Badge"
+import Separator from "./Separator"
+
+
 
 const Hero = () => {
   return (
