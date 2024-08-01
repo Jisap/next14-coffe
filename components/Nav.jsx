@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import NavList from "./NavList"
 
 
 
@@ -25,7 +26,10 @@ const Nav = () => {
       exit="close"
       className="bg-primary overflow-hidden absolute z-[50] -top-full w-full"
     >
-      Nav
+      <div className="container mx-auto h-full flex items-center justify-center">
+        <NavList />
+
+      </div>
     </motion.div>
   )
 }
