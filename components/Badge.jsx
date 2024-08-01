@@ -1,8 +1,16 @@
+import Image from 'next/image'
 import React from 'react'
 
-const Badge = () => {
+const Badge = ({ containerStyles }) => {
   return (
-    <div>Badge</div>
+    <div className={`relative ${containerStyles}`}>
+      <Image 
+        src="/assets/badge.svg"
+        className='object-contain'
+        fill
+        alt="badge"
+      />
+    </div>
   )
 }
 
