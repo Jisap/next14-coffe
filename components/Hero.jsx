@@ -18,7 +18,11 @@ const Hero = () => {
         Your browser does not support the video tag.
       </video>
 
-      <div className="container mx-auto h-full flex flex-col xl:flex-row items-center z-30 relative">
+      <div 
+        data-scroll
+        data-scroll-speed="0.4"  
+        className="container mx-auto h-full flex flex-col xl:flex-row items-center z-30 relative"
+      >
         {/* text */}
         <div className="flex-1 flex flex-col text-center justify-center items-center xl:pb-12 gap-10 h-full">
           {/* badge & h1 */}
