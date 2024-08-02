@@ -35,14 +35,14 @@ const Nav = () => {
       exit="close"
       className="bg-primary overflow-hidden absolute z-[50] -top-full w-full"
     >
-      <motion.div 
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.5 }}
+      <div 
+        // initial={{ y: 50, opacity: 0 }}
+        // animate={{ y: 0, opacity: 1 }}
+        // transition={{ delay: 0.8, duration: 0.5 }}
         className="container mx-auto h-full flex items-center justify-center">
         <NavList />
 
-      </motion.div>
+      </div>
     </motion.div>
   )
 }

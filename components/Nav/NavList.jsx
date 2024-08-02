@@ -21,7 +21,7 @@ const getLetter = (name) => {
         initial="initial"
         animate="enter"
         exit="exit"
-        custom={[index * 0.04, (name.length - index) * 0.01]}
+        custom={[index * 0.1, (name.length - index) * 0.05]} // propiedad personalizada que define los retrasos para las animaciones de entrada y salida.
       >
         {letter}
       </motion.span>
@@ -32,7 +32,7 @@ const getLetter = (name) => {
 
 const letterAnim = {
   initial: {
-    y: "100%",
+    y: "150%",
     opacity: 0,
   },
   enter: (i) => ({
@@ -45,7 +45,7 @@ const letterAnim = {
     },
   }),
   exit: (i) => ({
-    y: "100%",
+    y: "150%",
     opacity: 0,
     transition: {
       duration: 0.8,
