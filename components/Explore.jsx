@@ -61,6 +61,8 @@ const Explore = () => {
                 quality={100}
                 priority
                 className='object-cover'
+                data-scroll
+                data-scroll-speed="0.1"
               />
             </div>
           </div>
