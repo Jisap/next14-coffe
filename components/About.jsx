@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
 import { useLayoutEffect, useRef } from "react"
 import Badge from "./Badge"
+import Separator from "./Separator"
 
 const data = [
   {
@@ -35,12 +36,39 @@ const About = () => {
         <div ref={scrollableSectionRef}>
           {data.map((item, index) => {
             return(
-              <div key={index} className="w-screen h-screen flex flex-col justify-center items-center relative">
+              <div 
+                key={index} 
+                className="w-screen h-screen flex flex-col justify-center items-center relative"
+              >
                 <div className="container mx-auto">
-                  {/* text */}
-                  <div>text</div>
-                  {/* image */}
-                  <div>image</div>
+                  <div className="flex gap-[30px] relative">
+                    
+                    {/* text */}
+                    <div className="flex-1 flex flex-col justify-center items-center">
+                      <Badge containerStyles="w-[180px] h-[180px]" />
+                      <div className="max-w-[650px] text-center">
+                        {/* title */}
+                        <h2 className="h2 text-white mb-4">
+                          <span className="mr-4">{item.title.split(" ")[0]}</span>
+                          <span className="text-accent">{item.title.split(" ")[1]}</span>
+                        </h2>
+                        {/* separator */}
+                        <div className="mb-8">
+                          <Separator />
+                        </div>
+                        {/* description */}
+                        <p className="leading-relaxed mb-16 px-8 xl:px-0">{item.description}</p>
+                        {/* btn */}
+                        <button className="btn">See more</button>
+                      </div>
+                    </div>
+
+                    {/* image */}
+                    <div className="hidden xl:flex flex-1 w-full h-[70vh] relative">
+                      image
+                    </div>
+
+                  </div>
                 </div>
               </div>
             )
