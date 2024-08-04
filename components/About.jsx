@@ -30,10 +30,37 @@ const About = () => {
   const scrollableSectionRef = useRef(null);
   const scrollTriggerRef = useRef(null);
 
+  useLayoutEffect(() => {                             // useLayoutEffect asegura que la animación esté lista antes de que el usuario vea cualquier contenido.
+    gsap.registerPlugin(ScrollTrigger)                // Registra el plugin ScrollTrigger de GSAP y configura e inicia la animación GSAP antes de que el navegador pinte el DOM
+    
+    const animation = gsap.fromTo(                    // Este método crea una animación que va desde un estado inicial a un estado final.                
+      scrollableSectionRef.current,                   // Es el elemento del DOM que se va a animar.
+      { translateX: 0 },                              // La animación comienza con el elemento en su posición original                         
+      {
+        translateX: "-200vw",                         // La animación moverá el elemento 200 viewports width (vw) hacia la izquierda.
+        ease: "none",                                 // La animación progresará de manera lineal, sin aceleración ni desaceleración.
+        duration: 1,                                  // La duración base de la animación es 1 segundo, pero esto se modifica por el scrub en ScrollTrigger.
+        
+        scrollTrigger: {                              // Esta es la parte clave que vincula la animación al scroll de la página 
+          trigger: scrollTriggerRef.current,          // a el elemento que activa la animación cuando entra en la vista.
+          start: "top top",                           // La animación comienza cuando la parte superior del trigger alcanza la parte superior de la ventana
+          end: "1800vw top",                          // La animación termina cuando se ha desplazado 1800vw desde el punto de inicio.
+          scrub: 0.6,                                 // El valor 0.6 añade un pequeño retraso para suavizar el efecto.
+          pin: true,                                  // Esto mantiene el contenido visible mientras se desplaza horizontalmente.
+        },
+        
+      }
+    );
+
+    return () => {
+      animation.kill();
+    }
+  },[])
+
   return (
     <section className="overflow-hidden bg-primary">
       <div ref={scrollTriggerRef}>
-        <div ref={scrollableSectionRef}>
+        <div ref={scrollableSectionRef} className="h-screen w-[300vw] flex relative">
           {data.map((item, index) => {
             return(
               <div 
@@ -65,7 +92,14 @@ const About = () => {
 
                     {/* image */}
                     <div className="hidden xl:flex flex-1 w-full h-[70vh] relative">
-                      image
+                      <Image 
+                        src={item.imgSrc}
+                        fill
+                        className="object-cover"
+                        quality={100}
+                        priority
+                        alt=""
+                      />
                     </div>
 
                   </div>
