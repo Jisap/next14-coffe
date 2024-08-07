@@ -21,8 +21,6 @@ const links = [
 ]
 
 
-
-
 const Footer = () => {
   return (
     <footer className='bg-footer bg-cover bg-no-repeat pt-16 relative'>
