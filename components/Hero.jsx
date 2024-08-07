@@ -7,7 +7,7 @@ import Separator from "./Separator"
 
 const Hero = () => {
   return (
-    <section className="h-[80vh] xl:h-screen relative text-white">
+    <section className="h-[80vh] xl:h-screen relative text-white" id="hero">
       
       {/* overlay */}
       <div className="bg-hero_overlay absolute w-full h-full z-10 bg-primary/[0.93]"></div>

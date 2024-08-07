@@ -58,7 +58,7 @@ const About = () => {
   },[])
 
   return (
-    <section className="overflow-hidden bg-primary">
+    <section className="overflow-hidden bg-primary" id="about">
       <div ref={scrollTriggerRef}>
         <div ref={scrollableSectionRef} className="h-screen w-[300vw] flex relative">
           {data.map((item, index) => {

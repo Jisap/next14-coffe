@@ -6,7 +6,7 @@ import React from 'react'
 
 const Explore = () => {
   return (
-    <section className='py-12 xl:py-0 xl:h-[90vh] xl:w-screen'>
+    <section className='py-12 xl:py-0 xl:h-[90vh] xl:w-screen' id='explore'>
       <div className='container mx-auto xl:w-full xl:h-full flex xl:justify-center xl:items-center'>
         <div className='w-full flex flex-col lg:flex-row gap-12 xl:gap-20'>
           

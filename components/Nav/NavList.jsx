@@ -1,15 +1,22 @@
 import { motion } from "framer-motion"
-import Link from "next/link"
+//import Link from "next/link"
+import { Link as ScrollLink }  from "react-scroll";
 
 
+// const links = [
+//   { href: "/#hero", name: "Home" },
+//   { href: "/#explore", name: "Explore" },
+//   { href: "/#about", name: "About" },
+//   { href: "/#menu", name: "Menu" },
+//   { href: "/#contact", name: "Contact" },
+// ];
 
 const links = [
-  { href: "/", name: "Home" },
-  { href: "/", name: "Explore" },
-  { href: "/", name: "About" },
-  { href: "/", name: "Menu" },
-  { href: "/", name: "Contact" },
-];
+  { name: 'Home', target: 'hero', offset: -100 },
+  { name: 'Explore', target: 'explore', offset: -100 },
+  { name: 'About', target: 'about', offset: -40 },
+  { name: 'Menu', target: 'menu', offset: 0 },
+]
 
 const getLetter = (name) => {                               // getLetter recibe un nombre (name), 
   let letters = [];
@@ -61,13 +68,38 @@ const letterAnim = {                                          // Define las anim
 
 
 const NavList = () => {
+ 
+  //  return (
+  //   <ul className="flex flex-col gap-8 font-primary text-4xl font-semibold text-accent items-center uppercase">
+  //     {links.map((link, index) => {
+  //       return (
+  //         <Link 
+  //           key={index} 
+  //           href={link.href} 
+  //           className="flex overflow-hidden hover:text-white transition-all"
+  //         >
+  //           {getLetter(link.name)}
+  //         </Link>  
+  //       )
+  //     })}
+  //   </ul>
+  // )
+
   return (
     <ul className="flex flex-col gap-8 font-primary text-4xl font-semibold text-accent items-center uppercase">
       {links.map((link, index) => {
         return (
-          <Link href={link.href} key={index} className="flex overflow-hidden hover:text-white transition-all">
+          <ScrollLink
+            offset={link.offset}
+            to={link.target}
+            smooth
+            spy
+            activeClass='active'
+            key={index}
+            className="flex overflow-hidden hover:text-white transition-all"
+          >
             {getLetter(link.name)}
-          </Link>
+          </ScrollLink>
         )
       })}
     </ul>

@@ -1,14 +1,24 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa'
+import { Link as ScrollLink } from "react-scroll";
+
+// const links = [
+//   { href: "/", name: "Home" },
+//   { href: "/", name: "Explore" },
+//   { href: "/", name: "About" },
+//   { href: "/", name: "Menu" },
+//   { href: "/", name: "Contact" },
+// ];
 
 const links = [
-  { href: "/", name: "Home" },
-  { href: "/", name: "Explore" },
-  { href: "/", name: "About" },
-  { href: "/", name: "Menu" },
-  { href: "/", name: "Contact" },
-];
+  { name: 'Home', target: 'hero', offset: -100 },
+  { name: 'Explore', target: 'explore', offset: -80 },
+  { name: 'About', target: 'about', offset: -40 },
+  { name: 'Menu', target: 'menu', offset: 0 },
+]
 
 
 
@@ -31,13 +41,33 @@ const Footer = () => {
           </Link>
           {/* nav */}
           <nav className="flex flex-col xl:flex-row gap-8 xl:gap-12 justify-center items-center">
-            {links.map((link, index) => {
+            
+            {/* {links.map((link, index) => {
               return (
                 <Link href={link.href} key={index} className="uppercase text-white tracking-widest hover:text-accent transition-all">
                   {link.name}
                 </Link>
               )
-            })}
+            })} */}
+
+            {
+              links.map((link, index) => {
+                return (
+                  <ScrollLink
+                    offset={link.offset}
+                    to={link.target}
+                    smooth
+                    spy
+                    activeClass='active'
+                    key={index}
+                    className="uppercase text-white tracking-widest hover:text-accent transition-all"
+                  >
+                    {link.name}
+                  </ScrollLink>
+                )
+              })
+            }
+
           </nav>
           {/* social */}
           <ul className="flex text-white text-xl gap-4">
