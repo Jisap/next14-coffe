@@ -2,7 +2,6 @@
 
 import About from '@/components/About'
 import Explore from '@/components/Explore'
-import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 import Menu from '@/components/Menu'
 import OpeningHours from '@/components/OpeningHours'
@@ -32,8 +31,7 @@ const Home = () => {
       <Menu />
       <OpeningHours />
       <Testimonials />
-      <Footer />
-      <div className='h-[4000px]'></div>
+      {/* <div className='h-[4000px]'></div> */}
     </div>
   )
 }
